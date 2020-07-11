@@ -60,10 +60,10 @@ def get_convnet(convnet_type, **kwargs):
 def get_model(args):
     dict_models = {
         "icarl": models.ICarl,
-        "lwf": None,
+        "lwf": models.LwF,
         "e2e": models.End2End,
         "fixed": None,
-        "oracle": None,
+        "oracle": models.Oracle,
         "bic": models.BiC,
         "ucir": models.UCIR,
         "podnet": models.PODNet,
