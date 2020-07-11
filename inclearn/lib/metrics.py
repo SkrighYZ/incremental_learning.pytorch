@@ -66,8 +66,7 @@ class MetricLogger:
             "incremental_accuracy_top5": self.metrics["incremental_accuracy_top5"][-1],
             "forgetting": self.metrics["forgetting"][-1],
             "accuracy_per_class": self.metrics["accuracy_per_class"][-1],
-            "cord": self.metrics["cord"][-1],
-            "accuracy_each_task": self.metrics["accuracy"]
+            "cord": self.metrics["cord"][-1]
         }
 
         if "old_accuracy" in self.metrics:
