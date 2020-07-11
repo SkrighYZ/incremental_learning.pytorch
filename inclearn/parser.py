@@ -61,7 +61,7 @@ def get_parser():
                         help="LR multiplied by it.")
     parser.add_argument("-opt", "--optimizer", default="sgd", type=str,
                         help="Optimizer to use.")
-    parser.add_argument("-e", "--epochs", default=20, type=int,
+    parser.add_argument("-e", "--epochs", default=160, type=int,
                         help="Number of epochs per task.")
 
     # Misc:

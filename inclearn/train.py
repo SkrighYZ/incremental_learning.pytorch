@@ -135,7 +135,9 @@ def _train(args, start_date, class_order, run_id):
 
         accuracy_each_task = metric_logger.last_results["accuracy"]
         print(accuracy_each_task)
-        for i, task_label in enumerate(accuracy_each_task.keys()[1:]):
+        for i, task_label in enumerate(accuracy_each_task.keys()):
+            if task_label == 'total':
+                continue
             Rmatrix[task_id, i] = accuracy_each_task[task_label]
         np.save(Rmatrix, open('Rmatrix.npy', 'wb'))
 
