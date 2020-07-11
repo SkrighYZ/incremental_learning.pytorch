@@ -74,7 +74,7 @@ def get_model(args):
     model = args["model"].lower()
 
     args['classifier_config'] = {}
-    args['classifier_config']['type'] = 'cosine'
+    args['classifier_config']['type'] = 'fc'
 
     if model not in dict_models:
         raise NotImplementedError(
