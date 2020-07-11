@@ -73,6 +73,7 @@ def get_model(args):
 
     model = args["model"].lower()
 
+    args['classifier_config'] = {}
     args['classifier_config']['type'] = 'cosine'
 
     if model not in dict_models:
