@@ -32,7 +32,10 @@ class LwF(IncrementalLearner):
         self._n_epochs = args["epochs"]
         self._scheduling = args["scheduling"]
 
-        self._distillation_config = args["distillation_config"]
+        self._distillation_config = args.get("distillation_config", {
+                "temperature": 2,
+                "factor": 1
+        }),
 
         logger.info("Initializing LwM")
 
