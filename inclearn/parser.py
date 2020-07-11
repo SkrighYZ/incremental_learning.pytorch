@@ -44,11 +44,11 @@ def get_parser():
                         help="Cap the number of tasks.")
     parser.add_argument("-onehot", "--onehot", action="store_true",
                         help="Return data in onehot format.")
-    parser.add_argument("-initial-increment", "--initial-increment", default=None, type=int,
+    parser.add_argument("-initial-increment", "--initial-increment", default=10, type=int,
                         help="Initial increment, may be bigger.")
     parser.add_argument("-sampler", "--sampler",
                         help="Elements sampler.")
-    parser.add_argument("--data-path", default="/data/douillard/", type=str)
+    parser.add_argument("--data-path", default="./data/", type=str)
 
     # Training related:
     parser.add_argument("-lr", "--lr", default=0.1, type=float,
@@ -61,7 +61,7 @@ def get_parser():
                         help="LR multiplied by it.")
     parser.add_argument("-opt", "--optimizer", default="sgd", type=str,
                         help="Optimizer to use.")
-    parser.add_argument("-e", "--epochs", default=160, type=int,
+    parser.add_argument("-e", "--epochs", default=20, type=int,
                         help="Number of epochs per task.")
 
     # Misc:

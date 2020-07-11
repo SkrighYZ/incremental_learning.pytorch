@@ -127,17 +127,17 @@ def _train(args, start_date, class_order, run_id):
         # 4. Eval Task
         # ------------
 
-        accuracy_each_task = metric_logger.last_results["accuracy_each_task"]
-        print(accuracy_each_task)
-        for i, task_label in enumerate(accuracy_each_task.keys()):
-            Rmatrix[task_id, i] = accuracy_each_task[task_label]
-        np.save(Rmatrix, open('Rmatrix.npy', 'wb'))
-
         logger.info("Eval on {}->{}.".format(0, task_info["max_class"]))
         ypreds, ytrue = model.eval_task(test_loader)
         metric_logger.log_task(
             ypreds, ytrue, task_size=task_info["increment"], zeroshot=args.get("all_test_classes")
         )
+
+        accuracy_each_task = metric_logger.last_results["accuracy_each_task"]
+        print(accuracy_each_task)
+        for i, task_label in enumerate(accuracy_each_task.keys()):
+            Rmatrix[task_id, i] = accuracy_each_task[task_label]
+        np.save(Rmatrix, open('Rmatrix.npy', 'wb'))
 
         if args["dump_predictions"] and args["label"]:
             os.makedirs(
