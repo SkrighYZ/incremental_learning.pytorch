@@ -133,12 +133,13 @@ def _train(args, start_date, class_order, run_id):
             ypreds, ytrue, task_size=task_info["increment"], zeroshot=args.get("all_test_classes")
         )
 
-        accuracy_each_task = metric_logger.last_results["accuracy"]
+        accuracy_each_task = copy.deepcopy(metric_logger.last_results["accuracy"])
         print(accuracy_each_task)
         del accuracy_each_task['total']
         for i, task_label in enumerate(accuracy_each_task.keys()):
             Rmatrix[task_id, i] = accuracy_each_task[task_label]
         np.save(open('Rmatrix.npy', 'wb'), Rmatrix)
+        del accuracy_each_task
 
         if args["dump_predictions"] and args["label"]:
             os.makedirs(
