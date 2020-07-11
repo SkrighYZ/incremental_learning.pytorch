@@ -73,6 +73,8 @@ def get_model(args):
 
     model = args["model"].lower()
 
+    args['classifier_config']['type'] = 'cosine'
+
     if model not in dict_models:
         raise NotImplementedError(
             "Unknown model {}, must be among {}.".format(args["model"], list(dict_models.keys()))
