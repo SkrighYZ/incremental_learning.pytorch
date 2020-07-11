@@ -52,7 +52,7 @@ class IncrementalDataset:
         data_path="data",
         class_order=None,
         dataset_transforms=None,
-        all_test_classes=False,
+        all_test_classes=True,
         metadata_path=None
     ):
         datasets = _get_datasets(dataset_name)

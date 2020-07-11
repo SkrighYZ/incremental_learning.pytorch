@@ -51,17 +51,17 @@ def get_parser():
     parser.add_argument("--data-path", default="/data/douillard/", type=str)
 
     # Training related:
-    parser.add_argument("-lr", "--lr", default=2., type=float,
+    parser.add_argument("-lr", "--lr", default=0.1, type=float,
                         help="Learning rate.")
     parser.add_argument("-wd", "--weight-decay", default=0.00005, type=float,
                         help="Weight decay.")
-    parser.add_argument("-sc", "--scheduling", default=[49, 63], nargs="*", type=int,
+    parser.add_argument("-sc", "--scheduling", default=[80, 120], nargs="*", type=int,
                         help="Epoch step where to reduce the learning rate.")
-    parser.add_argument("-lr-decay", "--lr-decay", default=1/5, type=float,
+    parser.add_argument("-lr-decay", "--lr-decay", default=1/10, type=float,
                         help="LR multiplied by it.")
     parser.add_argument("-opt", "--optimizer", default="sgd", type=str,
                         help="Optimizer to use.")
-    parser.add_argument("-e", "--epochs", default=70, type=int,
+    parser.add_argument("-e", "--epochs", default=160, type=int,
                         help="Number of epochs per task.")
 
     # Misc:

@@ -97,6 +97,8 @@ def _train(args, start_date, class_order, run_id):
         inc_dataset.n_tasks, inc_dataset.n_classes, inc_dataset.increments
     )
 
+    Rmatrix = np.zeros([inc_dataset.n_tasks, inc_dataset.n_tasks])
+
     for task_id in range(inc_dataset.n_tasks):
         task_info, train_loader, val_loader, test_loader = inc_dataset.new_task(memory, memory_val)
         if task_info["task"] == args["max_task"]:
@@ -124,6 +126,13 @@ def _train(args, start_date, class_order, run_id):
         # ------------
         # 4. Eval Task
         # ------------
+
+        accuracy_each_task = metric_logger.last_results["accuracy_each_task"]
+        print(accuracy_each_task)
+        for i, task_label in enumerate(accuracy_each_task.keys()):
+            Rmatrix[task_id, i] = accuracy_each_task[task_label]
+        np.save(Rmatrix, open('Rmatrix.npy', 'wb'))
+
         logger.info("Eval on {}->{}.".format(0, task_info["max_class"]))
         ypreds, ytrue = model.eval_task(test_loader)
         metric_logger.log_task(
