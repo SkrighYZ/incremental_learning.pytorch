@@ -10,7 +10,7 @@ def get_parser():
     # Model related:
     parser.add_argument("-m", "--model", default="icarl", type=str,
                         help="Incremental learner to train.")
-    parser.add_argument("-c", "--convnet", default="rebuffi", type=str,
+    parser.add_argument("-c", "--convnet", default="resnet32", type=str,
                         help="Backbone convnet.")
     parser.add_argument("--dropout", default=0., type=float,
                         help="Dropout value.")

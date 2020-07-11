@@ -112,6 +112,7 @@ class IncrementalDataset:
         x_val, y_val = self._select(
             self.data_val, self.targets_val, low_range=min_class, high_range=max_class
         )
+        self._all_test_classes = True
         if self._all_test_classes is True:
             logger.info("Testing on all classes!")
             x_test, y_test = self._select(
