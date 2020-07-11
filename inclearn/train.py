@@ -133,7 +133,7 @@ def _train(args, start_date, class_order, run_id):
             ypreds, ytrue, task_size=task_info["increment"], zeroshot=args.get("all_test_classes")
         )
 
-        accuracy_each_task = metric_logger.last_results["accuracy_per_class"]
+        accuracy_each_task = metric_logger.last_results["accuracy"]
         print(accuracy_each_task)
         for i, task_label in enumerate(accuracy_each_task.keys()[1:]):
             Rmatrix[task_id, i] = accuracy_each_task[task_label]
