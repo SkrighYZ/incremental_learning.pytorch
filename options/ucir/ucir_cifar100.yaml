@@ -3,7 +3,7 @@ dataset: cifar100
 model: ucir
 convnet: resnet32
 
-classifer_config:
+classifier_config:
   type: cosine
 
 postprocessor_config:
