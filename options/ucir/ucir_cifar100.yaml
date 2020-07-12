@@ -3,6 +3,9 @@ dataset: cifar100
 model: ucir
 convnet: resnet32
 
+classifer_config:
+  type: cosine
+
 postprocessor_config:
   type: learned_scaling
   initial_value: 1.0
