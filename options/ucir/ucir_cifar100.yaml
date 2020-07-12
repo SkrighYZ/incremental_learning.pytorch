@@ -6,10 +6,6 @@ convnet: resnet32
 classifier_config:
   type: cosine
 
-postprocessor_config:
-  type: learned_scaling
-  initial_value: 1.0
-
 groupwise_factors:
   old_weights: 0.
 
