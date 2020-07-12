@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+import os
 
 def acc_seen(r_mat):
 	acc_seen = np.zeros(r_mat.shape[0])
@@ -16,9 +17,10 @@ def acc_current(r_mat):
 
 plt.style.use('seaborn')
 
-icarl = np.load('Rmatrix_icarl.npy')
-bic_fc = np.load('Rmatrix_bic_fc.npy')
-ucir_cosine = np.load('Rmatrix_ucir_cosine.npy')
+results_folder = 'results'
+icarl = np.load(os.path.join(results_folder, 'Rmatrix_icarl.npy'))
+bic_fc = np.load(os.path.join(results_folder, 'Rmatrix_bic_fc.npy'))
+ucir_cosine = np.load(os.path.join(results_folder, 'Rmatrix_ucir_cosine.npy'))
 
 if sys.argv[1] == 'seen':
 	acc_icarl = acc_seen(icarl)

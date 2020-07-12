@@ -40,6 +40,6 @@ plt.xlabel('Trained task')
 plt.ylabel('Testing task')
 plt.xticks(range(10))
 plt.yticks(range(10))
-plt.title('Accuracy matrix')
+plt.title('Accuracy matrix: ' + sys.argv[1][16:-4])
 plt.show()
 
