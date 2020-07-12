@@ -138,7 +138,7 @@ def _train(args, start_date, class_order, run_id):
         del accuracy_each_task['total']
         for i, task_label in enumerate(accuracy_each_task.keys()):
             Rmatrix[task_id, i] = accuracy_each_task[task_label]
-        np.save(open('Rmatrix' + args['model'] + '.npy', 'wb'), Rmatrix)
+        np.save(open('Rmatrix_' + args['model'] + '.npy', 'wb'), Rmatrix)
         del accuracy_each_task
 
         if args["dump_predictions"] and args["label"]:
