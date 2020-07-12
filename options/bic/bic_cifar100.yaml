@@ -5,6 +5,6 @@ model: bic
 convnet: resnet32
 
 classifier_config:
-  type: cosine
+  type: fc
 
 temperature: 2.
