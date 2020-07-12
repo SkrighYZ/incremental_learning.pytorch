@@ -73,9 +73,6 @@ def get_model(args):
 
     model = args["model"].lower()
 
-    args['classifier_config'] = {}
-    args['classifier_config']['type'] = 'fc'
-
     if model not in dict_models:
         raise NotImplementedError(
             "Unknown model {}, must be among {}.".format(args["model"], list(dict_models.keys()))
