@@ -1,0 +1,16 @@
+dataset: cifar100
+
+model: ucir
+convnet: resnet32
+
+postprocessor_config:
+  type: learned_scaling
+  initial_value: 1.0
+
+groupwise_factors:
+  old_weights: 0.
+
+weight_generation:
+  type: imprinted
+  multi_class_diff: kmeans
+
