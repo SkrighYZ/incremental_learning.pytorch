@@ -36,6 +36,10 @@ for i in range(10):
     for j in range(10):
         c = matrix[j,i]
         ax.text(i, j, str(c), va='center', ha='center')
-
+plt.xlabel('Trained task')
+plt.ylabel('Testing task')
+plt.xticks(range(10))
+plt.yticks(range(10))
+plt.title('Accuracy matrix')
 plt.show()
 
