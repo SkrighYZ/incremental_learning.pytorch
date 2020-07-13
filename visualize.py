@@ -30,7 +30,7 @@ fig, ax = plt.subplots()
 min_val, max_val = 0, 9
 matrix = Rmat.T
 
-ax.matshow(matrix, cmap=plt.cm.Reds)
+ax.matshow(matrix, cmap=plt.cm.Blues)
 
 for i in range(10):
     for j in range(10):
